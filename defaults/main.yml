@@ -1,0 +1,26 @@
+#Apache packages
+apache_packages:
+  - 'httpd'
+  - 'httpd-tools'
+  - 'mod_ssl'
+
+#Apache users
+apache_user: apache
+apache_group: apache
+apache_http_user: http
+apache_http_group: ghttp
+apache_log_group: apachelg
+
+#Apache directories permissions
+apache_home_dir_mode: '0750'
+apache_log_dir_mode: '2750'
+apache_doc_root_mode: '750'
+
+#Apache configuration variables
+apache_listen_http_port: 80
+apache_listen_https_port: 443
+apache_doc_root: '/var/www/'
+
+#Apache ssl configuration
+apache_ssl_protocol: 'All -SSLv2 -SSLv3 -TLSv1.0 -TLSv1.1 TLSv1.2'
+apache_ssl_cipher_suite: 'SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH'

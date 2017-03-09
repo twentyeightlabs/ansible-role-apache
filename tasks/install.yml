@@ -1,0 +1,7 @@
+- name: INSTALL | install packages
+  yum: name={{ item }} state=present
+  with_items:
+   - "{{ apache_packages }}"
+  tags:
+  - apache_packages
+  - apache

@@ -1,0 +1,29 @@
+- name: USERS | create Apache group
+  group: name={{ apache_group }} state=present
+  tags:
+  - apache
+  - apache_group
+
+- name: USERS | create Apache http group
+  group: name={{ apache_http_group }} state=present
+  tags:
+  - apache
+  - apache_http_group
+
+- name: USERS | create Apache log group
+  group: name={{ apache_log_group }} state=present
+  tags:
+  - apache
+  - apache_log_group
+
+- name: USERS | create apache user
+  user: name={{ apache_user }} state=present groups={{ apache_group }},{{ apache_log_group }},{{ apache_http_group }}
+  tags:
+  - apache
+  - apache_user
+
+- name: USERS | create apache http user
+  user: name={{ apache_http_user }} state=present groups={{ apache_http_group }}
+  tags:
+  - apache
+  - apache_http_user

@@ -1,0 +1,9 @@
+- name: Include user tasks
+  include: users.yml
+  tags:
+    - apache
+
+# - name: Include installers tasks
+#   include: install.yml
+#   tags:
+#   - apache
