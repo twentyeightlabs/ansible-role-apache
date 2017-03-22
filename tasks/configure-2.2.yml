@@ -1,0 +1,21 @@
+- name: CONFIGURATION | Create Apache certs directory
+  file: path="{{ apache_server_cert_path }}" state=directory
+  tags:
+    - apache
+    - apache_cert_dir
+
+- name: CONFIGURATION | Create Apache httpd.conf file
+  template:
+    src: httpd-conf.j2
+    dest: "{{ apache_server_root }}/conf/httpd.conf"
+  tags:
+   - apache
+   - apache_conf
+
+- name: CONFIGURATION | Create Apache ssl.conf file
+  template:
+    src: ssl-conf.j2
+    dest: "{{ apache_server_root }}/conf.d/ssl.conf"
+  tags:
+   - apache
+   - apache_conf

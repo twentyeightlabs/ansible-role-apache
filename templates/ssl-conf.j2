@@ -18,7 +18,7 @@ SSLCryptoDevice builtin
 
 <VirtualHost _default_:{{ apache_listen_https_port }}>
 
-ServerName lx153z.srv.pl.ing.net:{{ apache_listen_https_port }}
+ServerName {{ ansible_hostname }}:{{ apache_listen_https_port }}
 
 ErrorLog logs/ssl_error_log
 TransferLog logs/ssl_access_log
@@ -30,13 +30,13 @@ SSLProtocol {{ apache_ssl_protocol }}
 
 SSLCipherSuite {{ apache_ssl_cipher_suite }}
 
-SSLCertificateFile {{ apache_server_root }}/certs/explx153z-pem.crt
+SSLCertificateFile {{ apache_server_cert_path }}/{{ ansible_hostname }}-pem.crt
 
-SSLCertificateKeyFile {{ apache_server_root }}/certs/lx153z-pkcs8.key
+SSLCertificateKeyFile {{ apache_server_cert_path }}/{{ ansible_hostname }}-pkcs8.key
 
-SSLCertificateChainFile "{{ apache_server_root }}/certs/prd_tecca-pem.crt"
+SSLCertificateChainFile "{{apache_server_cert_path }}/prd_tecca-pem.crt"
 
-SSLCACertificatePath "{{ apache_server_root }}/certs"
+SSLCACertificatePath "{{ apache_server_cert_path }}"
 
 
 <Files ~ "\.(cgi|shtml|phtml|php3?)$">

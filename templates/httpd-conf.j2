@@ -1,4 +1,4 @@
-ServerTokens Prod
+ServerTokens {{ apache_server_tokens }}
 
 ServerRoot "{{ apache_server_root }}"
 
@@ -30,7 +30,7 @@ ThreadsPerChild     25
 MaxRequestsPerChild  0
 </IfModule>
 
-Listen 80
+Listen {{ apache_listen_http_port }}
 
 LoadModule auth_basic_module modules/mod_auth_basic.so
 LoadModule auth_digest_module modules/mod_auth_digest.so
@@ -70,9 +70,9 @@ Include conf.d/*.conf
 User apache
 Group apache
 
-ServerAdmin isp-was@ingservicespolska.pl
+ServerAdmin akoniuszy@gmail.com
 
-ServerName lx153z
+ServerName {{ ansible_hostname }}
 
 UseCanonicalName Off
 
@@ -242,6 +242,6 @@ BrowserMatch "^Dreamweaver-WebDAV-SCM1" redirect-carefully
     SetHandler server-status
     Order deny,allow
     Deny from all
-    Allow from 127.0.0.1 10.103.68.40 10.103.68.35 10.103.68.149 10.103.68.36 10.103.68.37 10.103.68.38 10.103.68.39
+    Allow from 127.0.0.1
 </Location>
 

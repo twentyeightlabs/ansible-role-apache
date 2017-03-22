@@ -4,6 +4,13 @@ apache_packages:
   - 'httpd-tools'
   - 'mod_ssl'
 
+#Apache directories
+apache_server_root: '/etc/httpd'
+apache_server_conf_dir: "{{ apache_server_root }}/conf"
+apache_server_confd_dir: "{{ apache_server_root }}/conf.d"
+apache_server_conf_modules_dir: "{{ apache_server_root }}/conf.modules.d"
+apache_server_cert_path: "{{ apache_server_root }}/certs"
+
 #Apache users
 apache_user: apache
 apache_group: apache
@@ -20,6 +27,7 @@ apache_doc_root_mode: '750'
 apache_listen_http_port: 80
 apache_listen_https_port: 443
 apache_doc_root: '/var/www/'
+apache_server_tokens: 'Prod'
 
 #Apache ssl configuration
 apache_ssl_protocol: 'All -SSLv2 -SSLv3 -TLSv1.0 -TLSv1.1 TLSv1.2'

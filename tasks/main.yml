@@ -3,7 +3,10 @@
   tags:
     - apache
 
-# - name: Include installers tasks
-#   include: install.yml
-#   tags:
-#   - apache
+- name: Include installers tasks
+  include: install.yml
+  tags:
+  - apache
+
+- name: Include configuration tasks
+  include: configure-2.2.yml
