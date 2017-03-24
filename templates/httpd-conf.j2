@@ -67,16 +67,16 @@ LoadModule version_module modules/mod_version.so2
 
 Include conf.d/*.conf
 
-User apache
-Group apache
+User {{ apache_user }}
+Group {{ apache_group }}
 
-ServerAdmin akoniuszy@gmail.com
+ServerAdmin {{ apache_server_admin }}
 
 ServerName {{ ansible_hostname }}
 
 UseCanonicalName Off
 
-DocumentRoot "/var/www/html"
+DocumentRoot "{{ apache_server_document_root }}"
 
 <Directory />
     Options FollowSymLinks
@@ -87,7 +87,7 @@ DocumentRoot "/var/www/html"
 </Directory>
 
 
-<Directory "/var/www/html">
+<Directory "{{ apache_server_document_root }}">
     Options -ExecCGI -FollowSymLinks -SymLinksIfOwnerMatch -Includes  -Indexes  -Multiviews
     AllowOverride AuthConfig FileInfo
     Order allow,deny

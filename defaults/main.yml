@@ -28,6 +28,8 @@ apache_listen_http_port: 80
 apache_listen_https_port: 443
 apache_doc_root: '/var/www/'
 apache_server_tokens: 'Prod'
+apache_server_admin: 'akoniuszy@gmail.com'
+apache_server_document_root: '/var/www/html'
 
 #Apache ssl configuration
 apache_ssl_protocol: 'All -SSLv2 -SSLv3 -TLSv1.0 -TLSv1.1 TLSv1.2'
