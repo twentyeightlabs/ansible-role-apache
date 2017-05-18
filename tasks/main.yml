@@ -8,5 +8,8 @@
   tags:
   - apache
 
+- name: Include clean default installation
+  include: clean-defaults.yml
+
 - name: Include configuration tasks
   include: configure-2.2.yml

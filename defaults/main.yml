@@ -22,6 +22,8 @@ apache_log_group: apachelg
 apache_home_dir_mode: '0750'
 apache_log_dir_mode: '2750'
 apache_doc_root_mode: '750'
+apache_conf_mode: '0640'
+apache_conf_dir_mode: '0750'
 
 #Apache configuration variables
 apache_listen_http_port: 80

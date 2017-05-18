@@ -1,0 +1,8 @@
+- name: CLEAN | Clean /var/www
+  file: path={{ apache_doc_root }}/cgi-bin state=absent
+
+- name: CLEAN | Velcome context
+  file: path={{ apache_server_confd_dir }}/welcome.conf state=absent
+
+- name: CLEAN | README file
+  file: path={{ apache_server_confd_dir }}/README state=absent
